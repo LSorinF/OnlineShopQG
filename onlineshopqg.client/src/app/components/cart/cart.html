@@ -1,0 +1,52 @@
+<div class="page-container">
+  <h2 class="title-purple">Your Shopping Cart</h2>
+
+  <div *ngIf="(cartItems$ | async) as items">
+
+    <!-- EMPTY CART STATE -->
+    <div *ngIf="items.length === 0" class="empty-cart-box">
+      <h3>Your cart is empty!</h3>
+      <p>Looks like you haven't added anything to your collection yet.</p>
+      <button routerLink="/" class="btn-purple" style="width: auto; margin-top: 15px;">
+        Return to Shop
+      </button>
+    </div>
+
+    <!-- CART CONTENT -->
+    <div *ngIf="items.length > 0">
+      <table class="shop-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td><strong>{{ item.product?.name }}</strong></td>
+            <td>{{ item.product?.price }} RON</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ (item.product?.price || 0) * item.quantity }} RON</td>
+            <td>
+              <button class="btn-remove" (click)="removeItem(item.productId)">
+                <i class="fa fa-trash"></i> Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SUMMARY & CHECKOUT -->
+      <div class="cart-summary">
+        <h3 style="margin-bottom: 20px;">Total: {{ cartTotal$ | async }} RON</h3>
+        <button routerLink="/checkout" class="btn-purple" style="max-width: 300px;">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

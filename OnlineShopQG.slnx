@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="onlineshopqg.client/onlineshopqg.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="OnlineShopQG.Server/OnlineShopQG.Server.csproj" />
+</Solution>

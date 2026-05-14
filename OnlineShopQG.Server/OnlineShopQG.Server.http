@@ -1,0 +1,6 @@
+@OnlineShopQG.Server_HostAddress = http://localhost:5049
+
+GET {{OnlineShopQG.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

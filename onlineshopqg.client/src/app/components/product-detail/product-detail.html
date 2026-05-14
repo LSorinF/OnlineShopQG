@@ -1,0 +1,40 @@
+<div class="page-container" *ngIf="product">
+  <div class="card-purple" style="display: flex; gap: 30px; padding: 30px; max-width: 900px; margin: 0 auto;">
+
+    <!-- IMAGE -->
+    <div style="flex: 1;">
+      <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.name" style="width: 100%; border-radius: 8px;">
+      <div *ngIf="!product.imageUrl" style="background: rgba(255,255,255,0.1); height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+        <i class="fa fa-image" style="font-size: 5rem; color: rgba(255,255,255,0.5);"></i>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+      <h1 class="title-purple" style="text-align: left; margin-bottom: 10px;">{{ product.name }}</h1>
+      <h2 style="color: white; margin-bottom: 20px;">{{ product.price }} RON</h2>
+
+      <p style="color: #eee; margin-bottom: 30px; line-height: 1.6;">
+        {{ product.description || 'No description available for this product.' }}
+      </p>
+
+      <!-- Quantity -->
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <label style="font-weight: bold; color: white;">Quantity:</label>
+        <div style="display: flex; align-items: center; background: white; border-radius: 5px; overflow: hidden;">
+          <button (click)="decreaseQuantity()" style="background: #eee; border: none; padding: 10px 15px; cursor: pointer; font-size: 1.2rem; color: #333;">-</button>
+          <span style="padding: 0 20px; color: #333; font-weight: bold;">{{ quantity }}</span>
+          <button (click)="increaseQuantity()" style="background: #eee; border: none; padding: 10px 15px; cursor: pointer; font-size: 1.2rem; color: #333;">+</button>
+        </div>
+      </div>
+
+      <!-- Add to cart -->
+      <button (click)="addToCart()" class="btn-purple" style="font-size: 1.1rem; padding: 15px;">
+        <i class="fa fa-shopping-cart"></i> Add to Cart
+      </button>
+    </div>
+
+  </div>
+</div>
+
+

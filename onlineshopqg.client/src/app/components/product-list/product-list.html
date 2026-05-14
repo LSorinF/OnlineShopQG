@@ -1,0 +1,72 @@
+<div class="shop-layout page-container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- SEARCH BAR -->
+    <div style="margin-bottom: 35px; width: 100%;">
+      <div style="position: relative; width: 100%;">
+        <i class="fa fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #6f42c1; font-size: 1rem;"></i>
+        <input type="text"
+               [(ngModel)]="searchText"
+               (input)="onSearch()"
+               placeholder="Search items..."
+               style="width: 100%; box-sizing: border-box; padding: 10px 15px 10px 40px; border: 2px solid #e0d4f5; border-radius: 25px; font-size: 0.95rem; outline: none; background-color: #fcfaff; color: #333;">
+      </div>
+    </div>
+
+    <!-----CATEGORY-->
+    <h2 class="sidebar-title">Category</h2>
+    <ul class="sidebar-list">
+      <li *ngFor="let cat of categories"
+          (click)="filterByCategory(cat)"
+          class="sidebar-item">
+        {{ cat }}
+      </li>
+    </ul>
+
+    <h2 class="sidebar-title mt-40">Brands</h2>
+    <div class="brand-container">
+      <ul class="sidebar-list">
+        <li *ngFor="let b of brands"
+            (click)="filterByBrand(b.brand)"
+            class="sidebar-item">
+          {{ b.brand }}
+          <span class="brand-count">({{ b.count }})</span>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- PRODUCT GRID -->
+  <section class="flex-1">
+    <h2 class="text-center mb-40">Our Collection</h2>
+
+    <div class="product-grid">
+      <div *ngFor="let product of filteredProducts" class="product-card card-purple">
+
+        <div class="card-image-box">
+          <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.name" class="product-image">
+
+          <i *ngIf="!product.imageUrl" class="fa fa-image placeholder-icon"></i>
+        </div>
+
+        <h3 class="mb-10">{{ product.price }} RON</h3>
+        <p class="product-name">{{ product.name }}</p>
+
+        <button (click)="addToCart(product)" class="btn-purple">
+          <i class="fa fa-shopping-cart"></i> Add to cart
+        </button>
+
+        <a [routerLink]="['/product', product.id]" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; color: #d8c3f9; text-decoration: none; font-size: 0.95rem; font-weight: 500; cursor: pointer;">
+          <i class="fa fa-eye"></i> View Product
+        </a>
+
+      </div>
+    </div>
+
+    <div *ngIf="filteredProducts.length === 0" style="text-align: center; margin-top: 50px; color: #6f42c1;">
+      <h3><i class="fa fa-frown-o"></i> No products found.</h3>
+    </div>
+  </section>
+</div>

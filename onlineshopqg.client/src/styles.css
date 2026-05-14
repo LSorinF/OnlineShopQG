@@ -1,0 +1,326 @@
+/*------------PRODUCT GRID LAYOUT------------------*/
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* -----------CHECKOUT LAYOUT-------- */
+:root {
+  --primary-purple: #4A148C;
+  --accent-purple: #7B1FA2;
+  --light-purple: #F3E5F5;
+  --border-purple: #E1BEE7;
+  --bg-soft: #fafafa;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(74, 20, 140, 0.1);
+}
+
+/* LAYOUT UTILITIES */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.grid-checkout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+}
+
+/* COMPONENTS */
+.card-purple {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--border-purple);
+  box-shadow: var(--shadow);
+}
+
+.card-summary {
+  background: var(--light-purple);
+  padding: 30px;
+  border-radius: 15px;
+  height: fit-content;
+}
+
+.btn-purple {
+  background-color: var(--accent-purple);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+  .btn-purple:hover {
+    background-color: var(--primary-purple);
+    transform: translateY(-2px);
+  }
+
+.input-purple {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px 0;
+  border: 1px solid var(--border-purple);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* TEXT STYLES */
+.title-purple {
+  color: var(--primary-purple);
+  margin-top: 0;
+  border-bottom: 2px solid var(--border-purple);
+  padding-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------------PRODUCT-LIST LAYOUT------------------ */
+.shop-layout {
+  display: flex;
+  gap: 30px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+}
+
+.sidebar-title {
+  color: var(--primary-purple);
+  border-bottom: 2px solid var(--primary-purple);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-purple);
+  transition: all 0.2s ease;
+}
+
+  .sidebar-item:hover {
+    background-color: var(--light-purple);
+    padding-left: 18px; 
+    color: var(--accent-purple);
+  }
+
+.brand-container {
+  background: var(--light-purple);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.brand-count {
+  float: right;
+  opacity: 0.6;
+  font-size: 0.9em;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-card button {
+    margin-top: 10px;
+  }
+
+.card-image-box {
+  height: 180px;
+  background: var(--light-purple);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .card-image-box i {
+    font-size: 40px;
+    color: var(--border-purple);
+  }
+
+.product-name {
+  font-weight: 500;
+  height: 45px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+/* ---------------CART LAYOUT--------------*/
+
+/* TABLE STYLES */
+.shop-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--white);
+}
+
+  .shop-table th {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--primary-purple);
+    color: var(--primary-purple);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+
+  .shop-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-purple);
+  }
+
+/* EMPTY STATE */
+.empty-cart-box {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--light-purple);
+  border-radius: 15px;
+  border: 2px dashed var(--border-purple);
+}
+
+/* DANGER BUTTON (REMOVAL) */
+.btn-remove {
+  background: #e57373; /* Un roșu pal care nu se bate cu movul */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+  .btn-remove:hover {
+    background: #d32f2f;
+  }
+
+.cart-summary {
+  margin-top: 30px;
+  text-align: right;
+  padding: 30px;
+  background: var(--light-purple);
+  border-radius: 15px;
+}
+
+
+
+
+/* ---------------REGISTER LAYOUT------------------ */
+
+/* FORM LAYOUT */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 5px; 
+}
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-purple);
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+
+.form-section h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-purple);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
