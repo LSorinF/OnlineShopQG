@@ -1,9 +1,9 @@
 describe('Authentication Flow Tests', () => {
 
-  const uniqueEmail = `newuser_2@example.com`;
+  const uniqueEmail = `newuser_${Math.random()}@example.com`;
   const validPassword = 'SecurePassword123!';
-  const existingEmail = 'Corina@gmail.com';
-  const existingPassword = 'Corina1!'
+  const existingEmail = 'Sorin@gmail.com';
+  const existingPassword = 'Sorin1!'
 
   it('Test Case 1: Register User', () => {
     // Go to register page
@@ -293,8 +293,7 @@ describe('Authentication Flow Tests', () => {
 
   it('Test Case 10: Place Order: Register before Checkout', () => {
 
-    const testUserEmail = 'AAA2@gmail.com'
-    const testPassword = 'SuperPass1'
+    const uniqueEmail = `newuser_${Math.random()}@example.com`;
 
     // Register and Authenticate first
     cy.visit('https://localhost:57131/register');
@@ -304,8 +303,8 @@ describe('Authentication Flow Tests', () => {
 
     // Fill out the registration form with complete details
     cy.get('input[name="name"]').type('Patrunjel Anabella');
-    cy.get('input[name="email"]').type(testUserEmail);
-    cy.get('input[name="password"]').type(testPassword);
+    cy.get('input[name="email"]').type(uniqueEmail);
+    cy.get('input[name="password"]').type(validPassword);
     cy.get('input[name="addressLine"]').type('100 Pre-Registered Blvd');
     cy.get('input[name="city"]').type('Bucharest');
     cy.get('input[name="state"]').type('Ilfov');
@@ -321,8 +320,8 @@ describe('Authentication Flow Tests', () => {
 
     //Go to login
     cy.visit('https://localhost:57131/login');
-    cy.get('input[name="email"]').type(testUserEmail);
-    cy.get('input[name="password"]').type(testPassword);
+    cy.get('input[name="email"]').type(uniqueEmail);
+    cy.get('input[name="password"]').type(validPassword);
     cy.contains('button', 'Login', { matchCase: false }).click();
 
 
