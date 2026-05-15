@@ -61,7 +61,7 @@ describe('Backend API Tests - Authentication', () => {
       url: `${baseUrl}/Auth/login`,
       failOnStatusCode: false, 
       body: {
-        email: 'smartbuyer_16843@example.com',
+        email: 'wrongUser@test.com',
         password: 'WrongPassword999!'
       }
     }).then((response) => {
