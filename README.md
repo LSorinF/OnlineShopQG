@@ -57,4 +57,6 @@ If you want to run automated tests to check the application's stability you need
 4. Select Frontend.cy.ts to test the UI
 5. Select Backend.cy.ts to test the APIs
 
+**For tests that use an existent User, register a user on the site first and modify "existingUser" and "validPassword" to match a set of credidentials you know exists in the database.**
+
 
